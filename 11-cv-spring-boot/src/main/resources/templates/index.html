@@ -1,0 +1,97 @@
+<!--
+  Vista de presentación del currículum renderizada con Thymeleaf (th:text, th:each).
+-->
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Currículum Vitae</title>
+</head>
+
+<body>
+  <div style="width: 90%; max-width: 960px; margin-bottom: 20px; text-align: right;">
+    <a th:href="@{/cv-form}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Editar Currículum</a>
+  </div>
+
+  <section>
+    <h2>Datos personales</h2>
+
+    <div class="profile-image">
+      <img th:src="@{/img/fotocv.png}" alt="Tu foto de perfil" width="150">
+    </div>
+    <div>
+      <strong>Nombre:</strong> <span th:text="${cvData.personalDetails.firstName}"></span>
+    </div>
+    <div>
+      <strong>Apellido:</strong> <span th:text="${cvData.personalDetails.lastName}"></span>
+    </div>
+    <div>
+      <strong>Correo electrónico:</strong> <span th:text="${cvData.personalDetails.email}"></span>
+    </div>
+    <div>
+      <strong>Perfil:</strong> <span th:text="${cvData.personalDetails.professionalProfile}"></span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Educación</h2>
+    <div class="cv-item" th:each="education, stat : ${cvData.educations}">
+      <h3>Educación <span th:text="${stat.index + 1}"></span></h3>
+      <div>
+        <strong>Institución:</strong> <span th:text="${education.institution}"> </span>
+      </div>
+      <div>
+        <strong>Título:</strong> <span th:text="${education.degree}"></span>
+      </div>
+      <div>
+        <strong>Período:</strong> <span th:text="${education.period}"></span>
+      </div>
+      <div th:if="${education.description != null and !education.description.trim().isEmpty()}">
+        <strong>Descripción:</strong> <span th:text="${education.description}"></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experiencia</h2>
+    <div th:each="experience, stat : ${cvData.experiences}" class="cv-item">
+      <h3 th:text="'Experiencia ' + ${stat.index + 1}"></h3>
+      <div>
+        <strong>Puesto:</strong> <span th:text="${experience.jobTitle}"></span>
+      </div>
+      <div>
+        <strong>Empresa:</strong> <span th:text="${experience.company}"></span>
+      </div>
+      <div>
+        <strong>Período:</strong> <span th:text="${experience.period}"></span>
+      </div>
+      <div th:if="${experience.description}">
+        <strong>Descripción:</strong> <span th:text="${experience.description}"></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div th:each="skill, stat : ${cvData.skills}" class="cv-item">
+      <div>
+        <strong>Habilidad:</strong> <span th:text="${skill.name}"></span>
+      </div>
+      <div>
+        <strong>Nivel:</strong> <span th:text="${skill.level}"></span>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Conectemos</h2>
+    <div class="social-links">
+      <a href="https://github.com/unicoast" target="_blank">GitHub</a>
+    </div>
+  </section>
+</body>
+
+</html>

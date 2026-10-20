@@ -1,0 +1,206 @@
+/*
+ * form-style.css
+ * Estilos específicos para el formulario de creación/edición de CV (cv-form.html)
+ * Diseñado para mantener coherencia visual con style.css (la vista del CV final)
+ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Fondo claro, como en el CV */
+    color: #343a40; /* Color de texto principal */
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Centra el formulario completo en la página */
+}
+
+h1 {
+    color: #007bff; /* Color primario de los títulos */
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.8em; /* Tamaño de fuente para el título principal */
+}
+
+/* Estilos para las secciones del formulario (Personal Details, Education, etc.) */
+section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra suave, como en el CV */
+    margin-bottom: 30px;
+    width: 90%; /* Ancho responsivo */
+    box-sizing: border-box; /* Incluye padding y border en el width */
+}
+
+h2 {
+    color: #28a745; /* Color de los subtítulos de sección, como en el CV */
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+h3 {
+    color: #495057; /* Color para títulos de sub-secciones (Educación 1, Experiencia 1) */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+/* Estilos para los contenedores de cada campo de formulario (label e input/textarea) */
+div {
+    margin-bottom: 15px;
+}
+
+/* Estilos para las etiquetas de los campos */
+label {
+    display: block; /* Cada etiqueta en su propia línea */
+    margin-bottom: 8px; /* Espacio entre la etiqueta y el campo */
+    font-weight: bold;
+    color: #343a40; /* Color de texto principal */
+    font-size: 1.1em;
+}
+
+/* Estilos para los campos de entrada de texto y email */
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 22px); /* Ancho completo menos padding y borde */
+    padding: 10px;
+    border: 1px solid #ced4da; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho */
+    font-size: 1em;
+    color: #495057; /* Color de texto dentro del input */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Borde azul al enfocar */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra suave al enfocar */
+    outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+/* Estilos para las áreas de texto (Perfil Profesional, Descripciones) */
+textarea {
+    width: calc(100% - 22px); /* Ancho completo menos padding y borde */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #495057;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 80px; /* Altura mínima para las áreas de texto */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Estilos para la línea divisoria horizontal */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; /* Color de línea similar a los bordes */
+    margin: 40px 0; /* Más espacio para separar secciones */
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+    display: block; /* Ocupa todo el ancho disponible */
+    width: 100%;
+    padding: 15px 25px;
+    background-color: #28a745; /* Verde para el botón de acción, como en el CV */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 40px; /* Espacio superior para separarlo de los campos */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Efecto ligero de "levantamiento" */
+}
+
+button[type="submit"]:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
+
+/* Estilos Responsive para el formulario */
+@media (max-width: 768px) {
+    body {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+        width: 95%; /* Un poco más de ancho en móviles */
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 8px;
+        font-size: 0.95em;
+    }
+
+    button[type="submit"] {
+        padding: 12px 20px;
+        font-size: 1.1em;
+        margin-top: 30px;
+    }
+
+    hr {
+        margin: 25px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 0.9em;
+    }
+}
